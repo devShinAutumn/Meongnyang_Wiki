@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration scan="true" scanPeriod="30 seconds" debug="true">
+<configuration scan="true">
+
+    <!-- 콘솔 -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <charset>UTF-8</charset>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <logger name="jdbc" level="off"/>
-    <logger name="jdbc.sqlonly" level="off"/>
-    <logger name="jdbc.sqltiming" level="debug"/>
-    <logger name="jdbc.audit" level="off"/>
-    <logger name="jdbc.resultset" level="off"/>
-    <logger name="jdbc.resultsettable" level="debug"/>
-    <logger name="jdbc.connection" level="off"/>
-
-    <root level="info">
-        <appender-ref ref="CONSOLE" />
+    <!-- 기본은 INFO 이상만 -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
     </root>
+
+    <!-- ✅ MyBatis SQL 로그는 DEBUG 유지 -->
+    <logger name="org.mybatis" level="DEBUG"/>
+    <logger name="mapper" level="DEBUG"/>
+
+    <!-- 🔇 시끄러운 것들 로그 줄이기 -->
+
+    <!-- HikariCP: 풀 구성은 INFO만, DEBUG 막기 -->
+    <logger name="com.zaxxer.hikari" level="INFO"/>
+
+    <!-- PostgreSQL JDBC 드라이버 디버그 줄이기 -->
+    <logger name="org.postgresql" level="INFO"/>
+
+    <!-- JDK TLS / 인증서 디버그 줄이기 -->
+    <logger name="jdk.event.security" level="WARN"/>
+
 </configuration>
