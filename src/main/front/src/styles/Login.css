@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.15);
+    background: #dcdcdc; /* 밝은 회색 전체 배경 */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -12,67 +12,93 @@
 .login-modal {
     position: relative;
     width: 420px;
-    padding: 32px 32px 24px;
+    padding: 32px 40px 26px;
     background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    border-radius: 16px;
+    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.18);
     box-sizing: border-box;
 }
 
 /* X 버튼 (우측 상단) */
 .login-close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 14px;
+    right: 16px;
     border: none;
     background: none;
     font-size: 16px;
     cursor: pointer;
+    color: #777;
 }
 
 /* LOGIN 타이틀 */
 .login-title {
-    margin: 10px 0 6px;
+    margin: 6px 0 10px;
     text-align: center;
     font-size: 24px;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     font-weight: 700;
 }
 
 /* 설명 텍스트 */
 .login-subtitle {
-    margin: 0 0 20px;
+    margin: 0 0 22px;
     text-align: center;
     font-size: 13px;
     color: #777;
     line-height: 1.5;
 }
 
+/* 입력칸 영역 */
+.login-input-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+/* 텍스트 인풋 스타일 (얇은 테두리, 평평한 스타일) */
+.login-input {
+    width: 100%;
+    height: 32px;
+    padding: 6px 8px;
+    border-radius: 0;
+    border: 1px solid #bdbdbd;
+    font-size: 13px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.login-input:focus {
+    outline: none;
+    border-color: #555;
+}
+
 /* 소셜 로그인 버튼 세로 정렬 */
 .login-social-column {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     margin-bottom: 18px;
 }
 
 /* 공통 소셜 버튼 스타일 */
 .social-full {
     width: 100%;
-    border-radius: 6px;
+    border-radius: 4px;
     border: none;
-    height: 42px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
 }
 
 /* 버튼 안의 텍스트 */
 .social-full-label {
-    margin-left: 4px;
+    margin-left: 2px;
 }
 
 /* 각 서비스별 색상 */
@@ -84,7 +110,7 @@
 .social-full.google {
     background: #ffffff;
     color: #444;
-    border: 1px solid #ddd;
+    border: 1px solid #d7d7d7;
 }
 
 .social-full.kakao {
@@ -94,8 +120,8 @@
 
 /* 아래 작은 안내 문구 */
 .login-bottom-text {
-    margin-top: 6px;
+    margin-top: 4px;
     text-align: center;
     font-size: 11px;
-    color: #999;
+    color: #a0a0a0;
 }

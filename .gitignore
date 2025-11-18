@@ -1,5 +1,55 @@
-.idea/compiler.xml
-.idea/encodings.xml
-.idea/jarRepositories.xml
-.idea/misc.xml
-.idea/vcs.xml
+### IntelliJ IDEA ###
+.idea/
+*.iml
+out/
+
+### Maven ###
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.properties
+
+### Logs ###
+logs/
+*.log
+*.log.*
+
+### OS / System ###
+.DS_Store
+Thumbs.db
+
+### Build ###
+/build/
+/bin/
+
+### Spring Boot Properties ###
+# application.properties / application.yml 모든 환경에서 제외
+application*.properties
+application*.yml
+
+# 환경 폴더 전부 제외 (예: /src/main/resources/application-dev.yml 등)
+src/main/resources/*.properties
+src/main/resources/*.yml
+src/main/resources/*.yaml
+
+### Security Keys / Credentials ###
+*.pem
+*.key
+*.crt
+*.keystore
+*.p12
+
+### Cache ###
+*.class
+*.tmp
+*.swp
+
+### Test output ###
+/surefire-reports/
+/test-output/
+
+### Node (혹시 프론트 포함시) ###
+node_modules/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
