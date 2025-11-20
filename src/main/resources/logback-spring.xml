@@ -27,5 +27,24 @@
 
     <!-- JDK TLS / 인증서 디버그 줄이기 -->
     <logger name="jdk.event.security" level="WARN"/>
+    <logger name="javax.management.remote.rmi" level="INFO" />
+    <logger name="sun.rmi.transport.tcp" level="INFO" />
+    <logger name="sun.rmi.loader" level="INFO" />
+    <logger name="sun.rmi.server.call" level="INFO" />
 
+
+    <!-- 콘솔 로그 패턴 (색상 포함) -->
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%d{HH:mm:ss.SSS} %highlight(%-5level) %magenta([%thread]) %cyan(%logger{36}) - %msg%n"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 루트 로그 레벨 -->
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+    </root>
 </configuration>

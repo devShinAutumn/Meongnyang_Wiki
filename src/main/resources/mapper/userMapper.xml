@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.userMapper">
+
+
+    <insert id="insertUser" parameterType="com.example.meongnyang_wiki.domain.user.UserMaster">
+        INSERT INTO user_master
+        (provider, provider_id, mbl_no, email, user_nm, last_login, reg_dt, reg_user, udt_dt, udt_user)
+        VALUES
+            (#{provider}, #{providerId}, #{mblNo}, #{email}, #{userNm}, #{lastLogin}, #{regDt}, #{regUser}, #{udtDt}, #{udtUser})
+    </insert>
+
+    <update id="updateUser" parameterType="com.example.meongnyang_wiki.domain.user.UserMaster">
+        UPDATE user_master
+        SET
+            provider    = #{provider},
+            provider_id = #{providerId},
+            mbl_no      = #{mblNo},
+            user_nm     = #{userNm},
+            last_login  = #{lastLogin},
+            udt_dt      = #{udtDt},
+            udt_user    = #{udtUser}
+        WHERE email = #{email}
+    </update>
+
+    <select id="selectByEmail" parameterType="string" resultType="com.example.meongnyang_wiki.domain.user.UserMaster">
+        SELECT
+            user_id,
+            provider,
+            provider_id,
+            mbl_no,
+            email,
+            user_nm,
+            last_login,
+            reg_dt,
+            reg_user,
+            udt_dt,
+            udt_user
+        FROM user_master
+        WHERE email = #{email}
+    </select>
+
+
+</mapper>
