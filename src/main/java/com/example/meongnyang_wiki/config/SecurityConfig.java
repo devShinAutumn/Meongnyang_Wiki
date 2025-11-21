@@ -20,14 +20,18 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/login", "/css/**", "/js/**", "/images/**").permitAll()
+                        .requestMatchers(
+                                "/login",
+                                "/css/**",
+                                "/js/**",
+                                "/images/**"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
-
                 .oauth2Login(oauth -> oauth
+                        .loginPage("http://localhost:3000/login")  // ⭐ 로그인 페이지 지정
                         .defaultSuccessUrl("http://localhost:3000", true)
                 )
-
                 .logout(logout -> logout
                         .logoutSuccessUrl("http://localhost:3000/login")
                         .invalidateHttpSession(true)
@@ -41,7 +45,7 @@ public class SecurityConfig {
     @Bean
     public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
         var config = new org.springframework.web.cors.CorsConfiguration();
-        config.setAllowedOrigins(java.util.List.of("http://localhost:3000")); 
+        config.setAllowedOrigins(java.util.List.of("http://localhost:3000"));
         config.setAllowedMethods(java.util.List.of("GET", "POST"));
         config.setAllowedHeaders(java.util.List.of("*"));
         config.setAllowCredentials(true); // 쿠키 보내려면 true 필수

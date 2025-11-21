@@ -16,10 +16,6 @@ import java.util.HashMap;
 public class MainController {
 
 
-    @GetMapping("")
-    public String main(Model model, @RequestParam HashMap<String, Object> map) throws Exception {
 
-        return "";
-    }
 
 }
